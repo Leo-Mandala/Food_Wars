@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 
 import RecipeDetails from '../components/RecipeDetails'
+import RecipeForm from "../components/RecipeForm";
 const Home = () => {
 
     const [recipes, setRecipes] = useState(null);
@@ -19,13 +20,13 @@ const Home = () => {
         fetchRecipes()
     },[])
     return (
-        <div className="text-3xl font-bold">
-            <div>
+        <div>
+            <div className="">
                 {recipes && recipes.map((recipe) => (
-                    <RecipeDetails key={recipe._id} recipe={recipe}/>
+                    <RecipeDetails key={recipe._id} recipe={recipe} />
                 ))}
             </div>
-
+            <RecipeForm />
         </div>
     )
 }
