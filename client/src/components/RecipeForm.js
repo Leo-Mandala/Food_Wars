@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useRecipesContext } from "../hooks/useRecipesContext";
 
 const RecipeForm = () => {
+    const {dispatch}=useRecipesContext()
     const [title, setTitle] = useState("")
     const [ingredients, setIngredients] = useState("")
     const [difficulty, setDifficulty] = useState("")
@@ -30,6 +32,7 @@ const RecipeForm = () => {
             setDifficulty('')
             setError(null)
             console.log('Recipe submitted successfully')
+            dispatch({type:'CREATE_RECIPE', payload: json})
         }
     }
     

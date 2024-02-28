@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { RecipeContextProvider } from './context/RecipeContext';
+import { RecipesContextProvider } from './context/RecipeContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RecipeContextProvider>
+    <RecipesContextProvider>
       <App />
-    </RecipeContextProvider>
+    </RecipesContextProvider>
   </React.StrictMode>
 );
 

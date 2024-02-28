@@ -12,6 +12,10 @@ export const recipesReducer = (state,  action) => {
             return {
                 recipes: [action.payload, ...state.recipes]
             }
+        case 'DELETE_RECIPE':
+            return{
+                recipes: state.recipes.filter((r) => r._id !== action.payload._id)
+            }
         default:
             return state
     }
@@ -25,7 +29,7 @@ export const RecipesContextProvider = ({ children}) => {
 
 
     return(
-        <RecipesContext.Provider value={{state, dispatch}}>
+        <RecipesContext.Provider value={{...state, dispatch}}>
             { children }
         </RecipesContext.Provider>
     )
